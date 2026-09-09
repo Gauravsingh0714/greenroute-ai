@@ -105,10 +105,7 @@ No build tools, servers, or external API keys are required.
 ## 15. Project Presentation
 [View Project Presentation](presentation/GreenRoute_AI_Project_Presentation.pptx)
 
-## 16. Demo Video
-> Demo video: To be added.
-
-## 17. Future Improvements
+## 16. Future Improvements
 The following are planned as **future** improvements and are not currently implemented:
 - Integration with live transport data
 - Real-time traffic information
@@ -118,5 +115,5 @@ The following are planned as **future** improvements and are not currently imple
 - Stronger safety and reliability signals
 - Improved personalization features
 
-## 18. Author
+## 17. Author
 GreenRoute AI was developed as part of the 1M1B AI for Sustainability Virtual Internship.
