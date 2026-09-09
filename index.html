@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenRoute AI – Choose a smarter, greener route</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">🌿 GreenRoute AI</h1>
+      <p class="site-tagline">Choose a smarter, greener route</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- ===== JOURNEY SECTION ===== -->
+    <section class="journey-section" aria-labelledby="journey-heading">
+      <h2 id="journey-heading" class="section-heading">Plan Your Journey</h2>
+      <div class="journey-form">
+        <div class="form-group">
+          <label for="from-input">From</label>
+          <input id="from-input" type="text" value="Current Location" />
+        </div>
+        <div class="form-group">
+          <label for="to-input">To</label>
+          <input id="to-input" type="text" value="Tech Hub, City Center" />
+        </div>
+        <button id="compare-btn" class="btn btn-primary" type="button">Compare Routes</button>
+      </div>
+      <p class="data-disclaimer">
+        <span class="disclaimer-icon" aria-hidden="true">ℹ️</span>
+        Example estimates — not live transport data.
+      </p>
+    </section>
+
+    <!-- ===== PRIORITY SELECTOR ===== -->
+    <section class="priority-section" aria-labelledby="priority-heading">
+      <h2 id="priority-heading" class="section-heading">Your Priority</h2>
+      <div class="priority-buttons" role="group" aria-label="Select your travel priority">
+        <button class="btn btn-priority" data-priority="fastest" type="button" aria-pressed="false">⚡ Fastest</button>
+        <button class="btn btn-priority" data-priority="cheapest" type="button" aria-pressed="false">💰 Cheapest</button>
+        <button class="btn btn-priority" data-priority="greenest" type="button" aria-pressed="false">🌱 Greenest</button>
+        <button class="btn btn-priority active" data-priority="balanced" type="button" aria-pressed="true">⚖️ Balanced</button>
+      </div>
+      <p class="priority-note">
+        <strong>Balanced</strong> considers travel time, cost, and lower estimated emissions together.
+        You can choose another priority at any time.
+      </p>
+    </section>
+
+    <!-- ===== RECOMMENDATION BANNER ===== -->
+    <div class="recommendation-banner" id="rec-banner" role="status" aria-live="polite">
+      <span class="rec-label">Recommended for your selected priority:</span>
+      <strong id="rec-route-name">Metro + Walk</strong>
+      <p id="rec-explanation" class="rec-explanation">
+        Metro + Walk offers a strong balance of travel time, cost, and lower estimated emissions.
+      </p>
+    </div>
+
+    <!-- ===== ROUTE CARDS ===== -->
+    <section class="routes-section" aria-labelledby="routes-heading">
+      <h2 id="routes-heading" class="section-heading">Route Options</h2>
+      <div class="cards-grid" id="cards-grid">
+
+        <!-- Card 1: Public Transport -->
+        <article class="route-card" id="card-public" data-route="public" aria-label="Public Transport route">
+          <div class="card-header">
+            <span class="route-icon" aria-hidden="true">🚌</span>
+            <h3 class="route-name">Public Transport</h3>
+            <span class="rec-badge" id="public-badge" aria-hidden="true">✔ Recommended</span>
+          </div>
+          <div class="card-stats">
+            <div class="stat"><span class="stat-label">Arrival</span><span class="stat-value">~9:42 AM</span></div>
+            <div class="stat"><span class="stat-label">Distance</span><span class="stat-value">12.4 km</span></div>
+            <div class="stat"><span class="stat-label">Walking</span><span class="stat-value">0.6 km</span></div>
+            <div class="stat"><span class="stat-label">Transfers</span><span class="stat-value">1</span></div>
+            <div class="stat"><span class="stat-label">Travel Time</span><span class="stat-value">37 min</span></div>
+            <div class="stat"><span class="stat-label">Cost</span><span class="stat-value">₹32</span></div>
+            <div class="stat"><span class="stat-label">Est. CO₂</span><span class="stat-value">0.9 kg</span></div>
+            <div class="stat"><span class="stat-label">Reliability</span><span class="stat-value">3.8 / 5</span></div>
+          </div>
+          <p class="card-note">🌦️ Route may be affected by peak-hour delays and weather.</p>
+          <p class="card-tradeoff">Affordable and reasonably green, but reliability depends on bus schedules.</p>
+          <button class="btn btn-select" type="button" aria-label="Select Public Transport route">Select Route</button>
+        </article>
+
+        <!-- Card 2: Metro + Walk -->
+        <article class="route-card recommended" id="card-metro" data-route="metro" aria-label="Metro and Walk route">
+          <div class="card-header">
+            <span class="route-icon" aria-hidden="true">🚇</span>
+            <h3 class="route-name">Metro + Walk</h3>
+            <span class="rec-badge" id="metro-badge" aria-hidden="true">✔ Recommended</span>
+          </div>
+          <div class="card-stats">
+            <div class="stat"><span class="stat-label">Arrival</span><span class="stat-value">~9:38 AM</span></div>
+            <div class="stat"><span class="stat-label">Distance</span><span class="stat-value">11.8 km</span></div>
+            <div class="stat"><span class="stat-label">Walking</span><span class="stat-value">1.2 km</span></div>
+            <div class="stat"><span class="stat-label">Transfers</span><span class="stat-value">0</span></div>
+            <div class="stat"><span class="stat-label">Travel Time</span><span class="stat-value">33 min</span></div>
+            <div class="stat"><span class="stat-label">Cost</span><span class="stat-value">₹28</span></div>
+            <div class="stat"><span class="stat-label">Est. CO₂</span><span class="stat-value">0.6 kg</span></div>
+            <div class="stat"><span class="stat-label">Reliability</span><span class="stat-value">4.5 / 5</span></div>
+          </div>
+          <p class="card-note">🛡️ Metro is generally safe and operates on a fixed schedule.</p>
+          <p class="card-tradeoff">Good balance of time, cost, and emissions — requires a 1.2 km walk.</p>
+          <button class="btn btn-select" type="button" aria-label="Select Metro + Walk route">Select Route</button>
+        </article>
+
+        <!-- Card 3: Private Ride -->
+        <article class="route-card" id="card-private" data-route="private" aria-label="Private Ride route">
+          <div class="card-header">
+            <span class="route-icon" aria-hidden="true">🚗</span>
+            <h3 class="route-name">Private Ride</h3>
+            <span class="rec-badge" id="private-badge" aria-hidden="true">✔ Recommended</span>
+          </div>
+          <div class="card-stats">
+            <div class="stat"><span class="stat-label">Arrival</span><span class="stat-value">~9:30 AM</span></div>
+            <div class="stat"><span class="stat-label">Distance</span><span class="stat-value">13.1 km</span></div>
+            <div class="stat"><span class="stat-label">Walking</span><span class="stat-value">0.1 km</span></div>
+            <div class="stat"><span class="stat-label">Transfers</span><span class="stat-value">0</span></div>
+            <div class="stat"><span class="stat-label">Travel Time</span><span class="stat-value">25 min</span></div>
+            <div class="stat"><span class="stat-label">Cost</span><span class="stat-value">₹210</span></div>
+            <div class="stat"><span class="stat-label">Est. CO₂</span><span class="stat-value">2.8 kg</span></div>
+            <div class="stat"><span class="stat-label">Reliability</span><span class="stat-value">4.0 / 5</span></div>
+          </div>
+          <p class="card-note">🚦 Travel time may vary with traffic conditions.</p>
+          <p class="card-tradeoff">Fastest option, but highest estimated cost and emissions.</p>
+          <p class="card-co2-note co2-caveat">CO₂ estimate assumes one passenger and may vary by vehicle type, fuel use, and traffic.</p>
+          <button class="btn btn-select" type="button" aria-label="Select Private Ride route">Select Route</button>
+        </article>
+
+        <!-- Card 4: Walking -->
+        <article class="route-card" id="card-walking" data-route="walking" aria-label="Walking route">
+          <div class="card-header">
+            <span class="route-icon" aria-hidden="true">🚶</span>
+            <h3 class="route-name">Walking</h3>
+            <!-- rec-badge kept in markup so applyPriority() can target it safely; it will never be shown for this card -->
+            <span class="rec-badge" id="walking-badge" aria-hidden="true">✔ Recommended</span>
+          </div>
+          <p class="distance-warning">⚠️ Not recommended for this distance</p>
+          <div class="card-stats">
+            <div class="stat"><span class="stat-label">Arrival</span><span class="stat-value">~10:35 AM</span></div>
+            <div class="stat"><span class="stat-label">Distance</span><span class="stat-value">9.7 km</span></div>
+            <div class="stat"><span class="stat-label">Walking</span><span class="stat-value">9.7 km</span></div>
+            <div class="stat"><span class="stat-label">Transfers</span><span class="stat-value">0</span></div>
+            <div class="stat"><span class="stat-label">Travel Time</span><span class="stat-value">~115 min</span></div>
+            <div class="stat"><span class="stat-label">Cost</span><span class="stat-value">₹0</span></div>
+            <div class="stat"><span class="stat-label">Est. CO₂</span><span class="stat-value">0.0 kg</span></div>
+            <div class="stat"><span class="stat-label">Reliability</span><span class="stat-value">5.0 / 5</span></div>
+          </div>
+          <p class="card-note">☀️ Comfort depends on weather and pavement conditions.</p>
+          <p class="card-tradeoff">
+            The estimated 9.7 km / ~115-minute walk is impractical for most users on this journey.
+            Shown here for transparency; ₹0 cost and 0.0 kg CO₂ figures are included for reference only.
+          </p>
+          <button class="btn btn-select" type="button" aria-label="Select Walking route">Select Route</button>
+        </article>
+
+      </div><!-- /.cards-grid -->
+    </section>
+
+    <!-- ===== HOW ESTIMATES WORK ===== -->
+    <section class="transparency-section" aria-labelledby="transparency-heading">
+      <h2 id="transparency-heading" class="section-heading">How Estimates Work</h2>
+      <div class="transparency-box">
+        <p>
+          CO₂ estimates use transport mode, journey distance, and assumed vehicle occupancy.
+          Fares, travel times, availability, and emissions may vary.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>Estimates may vary. Always consider safety, accessibility, weather, and local conditions.</p>
+      <p class="footer-brand">GreenRoute AI — a responsible travel decision-support tool. Not connected to live data.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
